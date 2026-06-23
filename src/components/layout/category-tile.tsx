@@ -25,7 +25,7 @@ export default function CategoryTiles() {
                                 {cat.name}
                             </h3>
                             <p className="text-sm text-muted-foreground mt-2">
-                                Browse {cat.name} cards
+                                Browse {cat.name} Cards
                             </p>
                         </Card>
                     </Link>

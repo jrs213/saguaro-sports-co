@@ -63,3 +63,26 @@ export async function getCards(): Promise<CardItem[]> {
     };
   });
 }
+
+export async function getCardById(id: string) : Promise<CardItem | null> {
+  const res = await client.getEntry(id);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const fields = res.fields as any;
+
+  return {
+    id: res.sys.id,
+    title: fields.title,
+    player: fields.player,
+    price: fields.price,
+    ebayUrl: fields.ebayUrl,
+    featured: fields.featured ?? false,
+    sport: fields.sport,
+    brand: fields.brand,
+    series: fields.series,
+    year: fields.year,
+    imageUrl: fields.image?.fields?.file?.url
+      ? `https:${fields.image.fields.file.url}`
+      : undefined,
+  };
+}
