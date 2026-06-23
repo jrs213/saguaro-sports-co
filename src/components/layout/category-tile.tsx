@@ -6,7 +6,7 @@ const categories = [
     { name: "Football", slug: "football", image: "/Logo.png" },
     { name: "Baseball", slug: "baseball", image: "/Logo.png" },
     { name: "Basketball", slug: "basketball", image: "/Logo.png" },
-    { name: "Hockey", slug: "Hockey", image: "/Logo.png" },
+    { name: "Hockey", slug: "hockey", image: "/Logo.png" },
 ];
 
 export default function CategoryTiles() {
@@ -19,7 +19,7 @@ export default function CategoryTiles() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
                 {categories.map((cat) => (
-                    <Link key={cat.slug} href={`/collection/${cat.slug}`}>
+                    <Link key={cat.slug} href={`/collection?sport=${cat.slug}`}>
                         <Card className="p-8 text-center cursor-pointer hover:shadow-md transition">
                             <h3 className="text-lg font-medium text-[#3f6b4b]">
                                 {cat.name}
